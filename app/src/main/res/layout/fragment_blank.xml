@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".views.TabFragment">
+    tools:context=".fragments.TabFragment"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/caption"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textColor="@color/ap_pink_red"
+        android:textSize="20dp"
         />
-</FrameLayout>
+
+</LinearLayout>

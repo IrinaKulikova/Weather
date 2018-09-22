@@ -11,8 +11,11 @@
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#d6fbff"
-        app:tabIndicatorHeight="10dp">
+        android:background="@color/ap_white"
+        app:tabIndicatorColor="@color/ap_pink_red"
+        app:tabSelectedTextColor="@color/ap_green"
+        app:tabTextColor="@color/ap_pink_red"
+        app:tabIndicatorHeight="5dp">
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager

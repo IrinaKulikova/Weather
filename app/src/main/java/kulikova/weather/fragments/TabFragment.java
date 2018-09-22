@@ -1,4 +1,4 @@
-package kulikova.weather.views;
+package kulikova.weather.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
