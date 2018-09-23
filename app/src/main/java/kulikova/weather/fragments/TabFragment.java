@@ -10,11 +10,16 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kulikova.weather.R;
 import kulikova.weather.api.App;
 import kulikova.weather.api.WeatherAPI;
+import kulikova.weather.views.LineView;
 import kulikova.weather.services.ServiceLoader;
 import kulikova.weather.utils.EnumTime;
+import kulikova.weather.utils.PointsAdapter;
 import kulikova.weather.utils.WeatherAdapter;
 import retrofit2.Retrofit;
 
@@ -30,10 +35,14 @@ public class TabFragment extends Fragment {
     private TextView humidityView;
     private TextView cloudsView;
     private ImageView iconView;
+    LineView lineView;
+    List<Float> points;
 
     Retrofit retrofit;
     WeatherAPI api;
-    WeatherAdapter adapter;
+    PointsAdapter pointsAdapter;
+    WeatherAdapter weatherAdapter;
+
 
     public TabFragment() {
     }
@@ -50,12 +59,14 @@ public class TabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new WeatherAdapter();
+        weatherAdapter = new WeatherAdapter();
+        pointsAdapter=new PointsAdapter();
+        points = new ArrayList<Float>();
 
         retrofit = App.get(getContext()).getRetrofit();
         api = retrofit.create(WeatherAPI.class);
 
-        adapter.setOnLoad(list -> {
+        weatherAdapter.setOnLoad(list -> {
             timeView.setText(list.getDtTxt());
             tempView.setText(list.getMain().getTemp().toString());
             cloudsView.setText(list.getClouds().getAll().toString());
@@ -63,6 +74,11 @@ public class TabFragment extends Fragment {
             pressureView.setText(list.getMain().getPressure().toString());
             windView.setText(list.getWind().getSpeed().toString());
             Picasso.with(getContext()).load(getString(R.string.URLicons) + list.getWeather().get(0).getIcon() + ".png").into(iconView);
+        });
+
+        pointsAdapter.setOnLoad(pointList -> {
+            points = pointList;
+            lineView.setPoints(points);
         });
     }
 
@@ -77,7 +93,9 @@ public class TabFragment extends Fragment {
         pressureView = view.findViewById(R.id.pressure);
         windView = view.findViewById(R.id.wind);
         iconView = view.findViewById(R.id.icon);
-        ServiceLoader.loadTime(api, adapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
+        lineView = view.findViewById(R.id.line_view);
+        ServiceLoader.loadTime(api, weatherAdapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
+        ServiceLoader.loadPoints(api, pointsAdapter);
         return view;
     }
 }

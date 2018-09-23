@@ -1,10 +1,8 @@
 package kulikova.weather.utils;
 
-import java.util.ArrayList;
-
 public class WeatherAdapter {
 
-    OnLoad onLoad = null;
+    ListLoad onLoad = null;
     kulikova.weather.entities.List list = null;
 
     public void setData(kulikova.weather.entities.List listCur) {
@@ -14,7 +12,7 @@ public class WeatherAdapter {
         }
     }
 
-    public void setOnLoad(OnLoad onLoad) {
+    public void setOnLoad(ListLoad onLoad) {
         this.onLoad = onLoad;
     }
 }
