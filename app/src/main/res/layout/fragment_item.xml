@@ -11,23 +11,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
+            style="@style/ItemStyle"
             android:text="date : "
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
-            android:textStyle="bold|italic"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
             android:layout_weight="1"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime" />
+            style="@style/ItemStyle"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -37,23 +33,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
             android:text="temperature min"
-            android:textColor="@color/ap_white"
+             style="@style/ItemStyle"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+           />
 
         <TextView
             android:id="@+id/temp_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold|italic"
             android:layout_weight="1"
-            android:layout_margin="@dimen/text_margin"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            style="@style/ItemStyle"
+            />
 
     </LinearLayout>
 
@@ -64,23 +56,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
             android:text="temperature max"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            style="@style/ItemStyle"
+            />
 
         <TextView
             android:id="@+id/temp_max"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold|italic"
             android:layout_weight="1"
-            android:layout_margin="@dimen/text_margin"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            style="@style/ItemStyle"
+            />
 
     </LinearLayout>
 
@@ -91,23 +79,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
             android:text="pressure"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            style="@style/ItemStyle"
+            />
 
         <TextView
             android:id="@+id/pressure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold|italic"
             android:layout_weight="1"
-            android:layout_margin="@dimen/text_margin"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime"/>
+            style="@style/ItemStyle"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -117,23 +101,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
             android:text="wind"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime" />
+            style="@style/ItemStyle"
+            />
 
         <TextView
             android:id="@+id/wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="bold|italic"
-            android:textColor="@color/ap_white"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="@dimen/sizeTextTime" />
+            style="@style/ItemStyle"
+            />
     </LinearLayout>
 
     <View

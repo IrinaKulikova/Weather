@@ -1,16 +1,19 @@
 package kulikova.weather.views;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import kulikova.weather.R;
 import kulikova.weather.services.ServiceLoader;
 import kulikova.weather.utils.MyPagerAdapter;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     MyPagerAdapter adapter;
 
     String[] images = new String[]{
-            "morning.jpg", "midday.jpg", "evening.jpg", "night.jpg", "3_days_2.jpg"
+            "1.jpg", "2.jpg", "3.jpg", "4.jpg", "3_days_2.jpg"
     };
 
     @Override
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
             @Override
             public void onPageSelected(int position) {
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrollStateChanged(int state) {
+            }
         });
 
         adapter = new MyPagerAdapter(getSupportFragmentManager());

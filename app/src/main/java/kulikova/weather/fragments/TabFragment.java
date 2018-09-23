@@ -5,7 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import kulikova.weather.R;
 import kulikova.weather.api.App;
@@ -26,13 +29,14 @@ public class TabFragment extends Fragment {
     private TextView windView;
     private TextView humidityView;
     private TextView cloudsView;
-    private TextView iconView;
+    private ImageView iconView;
 
     Retrofit retrofit;
     WeatherAPI api;
     WeatherAdapter adapter;
 
-    public TabFragment() {}
+    public TabFragment() {
+    }
 
     public static TabFragment newInstance(int position) {
 
@@ -58,7 +62,7 @@ public class TabFragment extends Fragment {
             humidityView.setText(list.getMain().getHumidity().toString());
             pressureView.setText(list.getMain().getPressure().toString());
             windView.setText(list.getWind().getSpeed().toString());
-            iconView.setText(list.getWeather().get(0).getIcon());
+            Picasso.with(getContext()).load(getString(R.string.URLicons) + list.getWeather().get(0).getIcon() + ".png").into(iconView);
         });
     }
 
@@ -72,7 +76,7 @@ public class TabFragment extends Fragment {
         humidityView = view.findViewById(R.id.humidity);
         pressureView = view.findViewById(R.id.pressure);
         windView = view.findViewById(R.id.wind);
-        //iconView = view.findViewById(R.id.icon);
+        iconView = view.findViewById(R.id.icon);
         ServiceLoader.loadTime(api, adapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
         return view;
     }

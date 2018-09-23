@@ -15,19 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="time: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle"/>
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="***"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,30 +34,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="temperature: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
 
         <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="***"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="36dp"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="@color/ap_pink_red"
-        android:textSize="@dimen/textSize"
-        android:textStyle="bold|italic" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,19 +54,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pressure: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
 
         <TextView
             android:id="@+id/pressure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:text="***"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -97,19 +73,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="clouds: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle"/>
 
         <TextView
             android:id="@+id/clouds"
-            android:text="***"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/DateTimeStyle"/>
+
+        <ImageView
+            android:id="@+id/icon"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            android:layout_gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -121,9 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="humidity: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
 
         <TextView
             android:id="@+id/humidity"
@@ -131,9 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,9 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="wind: "
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle" />
 
         <TextView
             android:id="@+id/wind"
@@ -155,9 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/ap_pink_red"
-            android:textSize="@dimen/textSize"
-            android:textStyle="bold|italic" />
+            style="@style/DateTimeStyle"/>
     </LinearLayout>
 
 
