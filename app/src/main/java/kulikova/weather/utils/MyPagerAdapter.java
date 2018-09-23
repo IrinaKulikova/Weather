@@ -12,42 +12,22 @@ import kulikova.weather.fragments.TabFragment;
 public class MyPagerAdapter extends FragmentPagerAdapter {
 
     private String[] captions = new String[]{
-            "Morning", "Midday", "Evening", "5 days"
+            "Morning", "Midday", "Evening", "Night", "3 days"
     };
 
-    Fragment morningFragment;
-    Fragment middayFragment;
-    Fragment eveningFragment;
-    Fragment listFragment;
-    Context context;
-
-
-    public MyPagerAdapter(FragmentManager fm, Context context) {
-
+    public MyPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.context = context;
     }
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            morningFragment = TabFragment.newInstance(captions[0]);
-            return morningFragment;
-
-        } else if (position == 1) {
-            middayFragment = TabFragment.newInstance(captions[1]);
-            return middayFragment;
-        } else if (position == 2) {
-            eveningFragment = TabFragment.newInstance(captions[2]);
-            return eveningFragment;
-        }
-        if (position == 3) {
-            listFragment = ListFragment.newInstance(captions[3]);
-            return listFragment;
+        if (position < captions.length - 1) {
+            return TabFragment.newInstance(position);
+        } else if (position == captions.length - 1) {
+            return ListFragment.newInstance(captions[position]);
         }
         return null;
     }
-
 
     @Nullable
     @Override

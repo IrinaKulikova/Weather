@@ -1,43 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:background="@color/ap_white"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textSize="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:background="@color/ap_white"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:text="date : "
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
 
-    <TextView
-        android:id="@+id/pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:background="@color/ap_white"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:layout_weight="1"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:background="@color/ap_white"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textSize="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:text="temperature min"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+
+        <TextView
+            android:id="@+id/temp_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/text_margin"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:text="temperature max"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+
+        <TextView
+            android:id="@+id/temp_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/text_margin"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:text="pressure"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/text_margin"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:text="wind"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime" />
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold|italic"
+            android:textColor="@color/ap_white"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="@dimen/sizeTextTime" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ap_white"/>
 </LinearLayout>

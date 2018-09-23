@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import kulikova.weather.R;
 
@@ -38,19 +41,32 @@ public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView textViewTemp;
+        final TextView textViewTempMin;
+        final TextView textViewTempMax;
         final TextView textViewPressure;
         final TextView textViewWind;
+        final TextView textViewDate;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textViewTemp=itemView.findViewById(R.id.temp);
+            textViewTempMin=itemView.findViewById(R.id.temp_min);
+            textViewTempMax=itemView.findViewById(R.id.temp_max);
             textViewPressure=itemView.findViewById(R.id.pressure);
             textViewWind=itemView.findViewById(R.id.wind);
+            textViewDate=itemView.findViewById(R.id.date);
         }
 
         public void bind(kulikova.weather.entities.List list) {
-            textViewTemp.setText(list.getMain().getTemp().toString());
+            SimpleDateFormat format= new SimpleDateFormat();
+            format.applyPattern("yyyy-MM-dd HH:mm:ss");
+            try {
+                Date day=format.parse(list.getDtTxt());
+                textViewDate.setText((day.getYear()+1900)+" - "+day.getMonth() + " - " +day.getDate() );
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            textViewTempMin.setText(list.getMain().getTempMin().toString());
+            textViewTempMax.setText(list.getMain().getTempMax().toString());
             textViewPressure.setText(list.getMain().getPressure().toString());
             textViewWind.setText(list.getWind().getSpeed().toString());
         }

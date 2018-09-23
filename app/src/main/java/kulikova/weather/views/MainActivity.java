@@ -12,6 +12,7 @@ import java.io.InputStream;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kulikova.weather.R;
+import kulikova.weather.services.ServiceLoader;
 import kulikova.weather.utils.MyPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     MyPagerAdapter adapter;
 
     String[] images = new String[]{
-            "morning.jpg","midday.jpg","evening.jpg","5_days.jpg"
+            "morning.jpg", "midday.jpg", "evening.jpg", "night.jpg", "3_days_2.jpg"
     };
 
     @Override
@@ -37,14 +38,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void InitViews() {
-        //tabLayout = findViewById(R.id.tablayout);
-        //viewPager = findViewById(R.id.viewPager);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             @Override
             public void onPageSelected(int position) {
@@ -52,12 +49,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) {}
         });
 
-        adapter = new MyPagerAdapter(getSupportFragmentManager(), MainActivity.this);
+        adapter = new MyPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 

@@ -54,9 +54,7 @@ public class List {
         this.weather = weather;
     }
 
-    public Clouds getClouds() {
-        return clouds;
-    }
+    public Clouds getClouds() {    return clouds;}
 
     public void setClouds(Clouds clouds) {
         this.clouds = clouds;

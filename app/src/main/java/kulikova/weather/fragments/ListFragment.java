@@ -15,7 +15,6 @@ import kulikova.weather.utils.WeatherAdapterList;
 import retrofit2.Retrofit;
 
 public class ListFragment extends Fragment {
-    private static final String ARG_CAPTION = "param1";
 
     RecyclerView recyclerView;
     WeatherAdapterList list;
@@ -28,7 +27,6 @@ public class ListFragment extends Fragment {
     public static ListFragment newInstance(String param1) {
         ListFragment fragment = new ListFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_CAPTION, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,7 +47,5 @@ public class ListFragment extends Fragment {
         ServiceLoader.load(api, list);
         recyclerView.setAdapter(list);
         return recyclerView;
-        //View view = inflater.inflate(R.layout.fragment_list, container, false);
-        //return view;
     }
 }
