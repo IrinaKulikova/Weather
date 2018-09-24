@@ -1,5 +1,6 @@
 package kulikova.weather.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import kulikova.weather.R;
 import kulikova.weather.api.App;
 import kulikova.weather.api.WeatherAPI;
 import kulikova.weather.services.ServiceLoader;
@@ -46,6 +49,7 @@ public class ListFragment extends Fragment {
         list = new WeatherAdapterList();
         ServiceLoader.load(api, list);
         recyclerView.setAdapter(list);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
         return recyclerView;
     }
 }

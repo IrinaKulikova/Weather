@@ -13,13 +13,33 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import kulikova.weather.R;
+import kulikova.weather.entities.WeatherJSON;
 
 public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.ViewHolder> {
 
-    public void setWeathers(java.util.List<kulikova.weather.entities.List> list) {
-        this.list = list;
+    public void setWeathers(WeatherJSON weatherJSON) {
+        this.list = createList(weatherJSON);
         notifyDataSetChanged();
     }
+
+    private static java.util.List<kulikova.weather.entities.List> createList(WeatherJSON weatherJSON) {
+
+        java.util.List<kulikova.weather.entities.List> newList = new ArrayList<>();
+
+        int days = 3;
+
+        for (kulikova.weather.entities.List list : weatherJSON.getList()) {
+            if (list.getDtTxt().contains(EnumTime.MORNING.toString())) {
+                if (newList.size() < days) {
+                    newList.add(list);
+                } else {
+                    break;
+                }
+            }
+        }
+        return newList;
+    }
+
 
     java.util.List<kulikova.weather.entities.List> list = new ArrayList<>();
 
@@ -41,16 +61,14 @@ public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView textViewTempMin;
-        final TextView textViewTempMax;
+        final TextView textViewTemp;
         final TextView textViewPressure;
         final TextView textViewWind;
         final TextView textViewDate;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textViewTempMin=itemView.findViewById(R.id.temp_min);
-            textViewTempMax=itemView.findViewById(R.id.temp_max);
+            textViewTemp=itemView.findViewById(R.id.temp);
             textViewPressure=itemView.findViewById(R.id.pressure);
             textViewWind=itemView.findViewById(R.id.wind);
             textViewDate=itemView.findViewById(R.id.date);
@@ -65,8 +83,7 @@ public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            textViewTempMin.setText(list.getMain().getTempMin().toString());
-            textViewTempMax.setText(list.getMain().getTempMax().toString());
+            textViewTemp.setText(list.getMain().getTemp().toString());
             textViewPressure.setText(list.getMain().getPressure().toString());
             textViewWind.setText(list.getWind().getSpeed().toString());
         }

@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class LineView extends View {
 
         super.onDraw(canvas);
         mPaint.setColor(Color.GRAY);
-        mPaint.setStrokeWidth(5);
+        mPaint.setStrokeWidth(10);
         float minY = Float.MAX_VALUE;
         float maxY = Float.MIN_VALUE;
 
@@ -53,17 +52,31 @@ public class LineView extends View {
         }
 
         float height = maxY - minY;
-        float hDevice = new Float(getHeight());
-        float koef = (4 * hDevice) / (5 * height);
+        float heigthView = new Float(getHeight());
+        float koef = (4 * heigthView) / (5 * height);
 
         float wDevice = getWidth();
 
         int stepX = (int) (wDevice / (points.size() + 2));
-        mPaint.setARGB(255, 255, 255, 255);
 
         for (int i = 0; i < points.size() - 1; i++) {
-            canvas.drawLine(stepX * (i + 1), (points.get(i) - minY + (hDevice / 20)) + (points.get(i) - minY) * koef,
-                    stepX * (i + 2), (points.get(i + 1) - minY + (hDevice / 20)) + (points.get(i + 1) - minY) * koef, mPaint);
+            mPaint.setStrokeWidth(10);
+            mPaint.setARGB(255, 255, 255, 255);
+            canvas.drawLine(stepX * (i + 1), (points.get(i) - minY + (heigthView / 20)) + (points.get(i) - minY) * koef,
+                    stepX * (i + 2), (points.get(i + 1) - minY + (heigthView / 20)) + (points.get(i + 1) - minY) * koef, mPaint);
+
+            mPaint.setStrokeWidth(2);
+            mPaint.setARGB(255, 100, 100, 100);
+            canvas.drawLine(stepX * (i + 2), heigthView / 20 ,stepX * (i + 2), heigthView -(heigthView / 10), mPaint);
         }
+        mPaint.setStrokeWidth(5);
+        mPaint.setARGB(255, 255, 255, 255);
+        canvas.drawLine(stepX, (heigthView / 20), wDevice - stepX, (heigthView / 20), mPaint);
+        canvas.drawLine(stepX, heigthView - (heigthView / 10), wDevice - stepX, heigthView - (heigthView / 10), mPaint);
+        mPaint.setARGB(255, 255, 255, 0);
+        mPaint.setTextSize(60);
+        mPaint.setStrokeWidth(10);
+        canvas.drawText("min: " + String.valueOf(maxY), (3*wDevice) / 5, heigthView / 8, mPaint);
+        canvas.drawText("max: " + String.valueOf(minY), (3*wDevice) / 5, (7*heigthView )/ 8, mPaint);
     }
 }

@@ -2,5 +2,6 @@
 <resources>
     <dimen name="text_margin">4dp</dimen>
     <dimen name="textSize">28dp</dimen>
-    <dimen name="sizeTextTime">20dp</dimen>
+    <dimen name="sizeTextTime">24dp</dimen>
+    <dimen name="sizeTemp">38dp</dimen>
 </resources>

@@ -1,6 +1,4 @@
-package kulikova.weather.utils;
-
-import android.view.View;
+package kulikova.weather.interfaces;
 
 import kulikova.weather.entities.List;
 

@@ -1,4 +1,4 @@
-package kulikova.weather.utils;
+package kulikova.weather.interfaces;
 
 import java.util.List;
 

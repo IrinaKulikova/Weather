@@ -21,4 +21,11 @@
         <item name="android:textSize">@dimen/sizeTextTime</item>
         <item name="android:layout_margin">@dimen/text_margin</item>
     </style>
+
+    <style name="TempStyle">
+        <item name="android:textColor">@color/ap_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sizeTemp</item>
+        <item name="android:layout_margin">@dimen/text_margin</item>
+    </style>
 </resources>

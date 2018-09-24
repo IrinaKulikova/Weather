@@ -1,15 +1,29 @@
 package kulikova.weather.utils;
 
+import android.support.annotation.Nullable;
+
+import kulikova.weather.entities.List;
+import kulikova.weather.entities.WeatherJSON;
+import kulikova.weather.interfaces.ListLoad;
+
 public class WeatherAdapter {
 
-    ListLoad onLoad = null;
+    ListLoad onLoad = list -> {};
     kulikova.weather.entities.List list = null;
 
-    public void setData(kulikova.weather.entities.List listCur) {
-        this.list = listCur;
-        if (onLoad != null) {
+    public void setData(EnumTime time, WeatherJSON response) {
+        this.list = getData(time, response);
             onLoad.OnCreateView(list);
+    }
+
+    @Nullable
+    private static List getData(EnumTime time, WeatherJSON response) {
+        for (List list : response.getList()) {
+            if (list.getDtTxt().contains(time.toString())) {
+                return list;
+            }
         }
+        return null;
     }
 
     public void setOnLoad(ListLoad onLoad) {
