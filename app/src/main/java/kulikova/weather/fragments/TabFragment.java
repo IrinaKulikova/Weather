@@ -1,5 +1,6 @@
 package kulikova.weather.fragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,12 +36,12 @@ public class TabFragment extends Fragment {
     private TextView humidityView;
     private TextView cloudsView;
     private ImageView iconView;
-    LineView lineView;
-    List<Float> points;
+//    LineView lineView;
+//    List<Float> points;
 
     Retrofit retrofit;
     WeatherAPI api;
-    PointsAdapter pointsAdapter;
+    //PointsAdapter pointsAdapter;
     WeatherAdapter weatherAdapter;
 
 
@@ -60,15 +61,16 @@ public class TabFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherAdapter = new WeatherAdapter();
-        pointsAdapter=new PointsAdapter();
-        points = new ArrayList<Float>();
+//        pointsAdapter=new PointsAdapter();
+//        points = new ArrayList<Float>();
 
         retrofit = App.get(getContext()).getRetrofit();
         api = retrofit.create(WeatherAPI.class);
 
         weatherAdapter.setOnLoad(list -> {
+            double k = 273.15;
             timeView.setText(list.getDtTxt());
-            tempView.setText(list.getMain().getTemp().toString());
+            tempView.setText(String.valueOf((int)(list.getMain().getTemp()- k)));
             cloudsView.setText(list.getClouds().getAll().toString());
             humidityView.setText(list.getMain().getHumidity().toString());
             pressureView.setText(list.getMain().getPressure().toString());
@@ -76,26 +78,30 @@ public class TabFragment extends Fragment {
             Picasso.with(getContext()).load(getString(R.string.URLicons) + list.getWeather().get(0).getIcon() + ".png").into(iconView);
         });
 
-        pointsAdapter.setOnLoad(pointList -> {
-            points = pointList;
-            lineView.setPoints(points);
-        });
+//        pointsAdapter.setOnLoad(pointList -> {
+//            points = pointList;
+//            lineView.setPoints(points);
+//        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
+
+        Typeface typeface = Typeface.createFromAsset(getContext().getAssets(),"Vodafone.ttf");
+
         timeView = view.findViewById(R.id.time);
         tempView = view.findViewById(R.id.temperature);
+        tempView.setTypeface(typeface);
         cloudsView = view.findViewById(R.id.clouds);
         humidityView = view.findViewById(R.id.humidity);
         pressureView = view.findViewById(R.id.pressure);
         windView = view.findViewById(R.id.wind);
         iconView = view.findViewById(R.id.icon);
-        lineView = view.findViewById(R.id.line_view);
+//        lineView = view.findViewById(R.id.line_view);
         ServiceLoader.loadTime(getContext().getString(R.string.cityID),api, weatherAdapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
-        ServiceLoader.loadPoints(getContext().getString(R.string.cityID), api, pointsAdapter);
+        //ServiceLoader.loadPoints(getContext().getString(R.string.cityID), api, pointsAdapter);
         return view;
     }
 }

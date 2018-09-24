@@ -1,6 +1,8 @@
 package kulikova.weather.views;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +35,12 @@ public class LineView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
         if (points.size() == 0) {
             return;
         }
 
-        super.onDraw(canvas);
         mPaint.setColor(Color.GRAY);
         mPaint.setStrokeWidth(10);
         float minY = Float.MAX_VALUE;
@@ -67,7 +71,7 @@ public class LineView extends View {
 
             mPaint.setStrokeWidth(2);
             mPaint.setARGB(255, 100, 100, 100);
-            canvas.drawLine(stepX * (i + 2), heigthView / 20 ,stepX * (i + 2), heigthView -(heigthView / 10), mPaint);
+            canvas.drawLine(stepX * (i + 2), heigthView / 20, stepX * (i + 2), heigthView - (heigthView / 10), mPaint);
         }
         mPaint.setStrokeWidth(5);
         mPaint.setARGB(255, 255, 255, 255);
@@ -76,7 +80,8 @@ public class LineView extends View {
         mPaint.setARGB(255, 255, 255, 0);
         mPaint.setTextSize(60);
         mPaint.setStrokeWidth(10);
-        canvas.drawText("min: " + String.valueOf(maxY), (3*wDevice) / 5, heigthView / 8, mPaint);
-        canvas.drawText("max: " + String.valueOf(minY), (3*wDevice) / 5, (7*heigthView )/ 8, mPaint);
+        double k = 273.15;
+        canvas.drawText("max: " + String.valueOf((int)(maxY-k)), (3 * wDevice) / 5, heigthView / 8, mPaint);
+        canvas.drawText("min: " + String.valueOf((int)(minY-k)), (3 * wDevice) / 5, (7 * heigthView) / 8, mPaint);
     }
 }
