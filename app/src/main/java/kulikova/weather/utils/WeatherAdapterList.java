@@ -83,7 +83,8 @@ public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            textViewTemp.setText(list.getMain().getTemp().toString());
+            double k = 273.15;
+            textViewTemp.setText( String.valueOf((int)(list.getMain().getTemp()-k)));
             textViewPressure.setText(list.getMain().getPressure().toString());
             textViewWind.setText(list.getWind().getSpeed().toString());
         }
