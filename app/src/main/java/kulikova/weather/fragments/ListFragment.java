@@ -47,9 +47,8 @@ public class ListFragment extends Fragment {
         recyclerView = new RecyclerView(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         list = new WeatherAdapterList();
-        ServiceLoader.load(api, list);
+        ServiceLoader.load(getContext().getString(R.string.cityID) , api, list);
         recyclerView.setAdapter(list);
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
         return recyclerView;
     }
 }

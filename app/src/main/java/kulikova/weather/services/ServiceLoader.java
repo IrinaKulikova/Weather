@@ -10,8 +10,8 @@ import kulikova.weather.utils.WeatherAdapter;
 import kulikova.weather.utils.WeatherAdapterList;
 
 public class ServiceLoader {
-    public static void load(WeatherAPI weatherAPI, WeatherAdapterList adapter) {
-        weatherAPI.getByCityId("709930")
+    public static void load(String id, WeatherAPI weatherAPI, WeatherAdapterList adapter) {
+        weatherAPI.getByCityId(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -21,8 +21,8 @@ public class ServiceLoader {
                 });
     }
 
-    public static void loadTime(WeatherAPI weatherAPI, WeatherAdapter adapter, EnumTime time) {
-        weatherAPI.getByCityId("709930")
+    public static void loadTime(String id,WeatherAPI weatherAPI, WeatherAdapter adapter, EnumTime time) {
+        weatherAPI.getByCityId(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -32,8 +32,8 @@ public class ServiceLoader {
                 });
     }
 
-    public static void loadPoints(WeatherAPI weatherAPI, PointsAdapter adapter) {
-        weatherAPI.getByCityId("709930")
+    public static void loadPoints(String id, WeatherAPI weatherAPI, PointsAdapter adapter) {
+        weatherAPI.getByCityId(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

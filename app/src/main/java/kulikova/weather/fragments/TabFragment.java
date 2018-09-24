@@ -94,8 +94,8 @@ public class TabFragment extends Fragment {
         windView = view.findViewById(R.id.wind);
         iconView = view.findViewById(R.id.icon);
         lineView = view.findViewById(R.id.line_view);
-        ServiceLoader.loadTime(api, weatherAdapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
-        ServiceLoader.loadPoints(api, pointsAdapter);
+        ServiceLoader.loadTime(getContext().getString(R.string.cityID),api, weatherAdapter, EnumTime.getByPosition((getArguments().getInt(ARG_POSITION))));
+        ServiceLoader.loadPoints(getContext().getString(R.string.cityID), api, pointsAdapter);
         return view;
     }
 }
