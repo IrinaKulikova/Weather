@@ -1,6 +1,7 @@
 package kulikova.weather.views;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     MyPagerAdapter adapter;
 
+    @BindView(R.id.diagram)
+    Button diagram;
+
     String[] images = new String[]{
             "1.jpg", "2.jpg", "3.jpg", "4.jpg", "3_days_2.jpg"
     };
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         InitViews();
-    }
+        }
 
     private void InitViews() {
 
@@ -73,5 +77,11 @@ public class MainActivity extends AppCompatActivity {
         }
         Drawable d = Drawable.createFromStream(inputStream, null);
         viewPager.setBackground(d);
+    }
+
+    @OnClick(R.id.diagram)
+    public void showDiagram(){
+        Intent intent=new Intent(this, DiagramActivity.class);
+        startActivity(intent);
     }
 }
