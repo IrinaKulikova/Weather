@@ -1,4 +1,4 @@
-package kulikova.weather.utils;
+package kulikova.weather.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +14,7 @@ import java.util.Date;
 
 import kulikova.weather.R;
 import kulikova.weather.entities.WeatherJSON;
+import kulikova.weather.enums.EnumTime;
 
 public class WeatherAdapterList extends RecyclerView.Adapter<WeatherAdapterList.ViewHolder> {
 

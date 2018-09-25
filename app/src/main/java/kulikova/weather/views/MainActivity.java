@@ -1,7 +1,6 @@
 package kulikova.weather.views;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,8 +15,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kulikova.weather.R;
-import kulikova.weather.services.ServiceLoader;
-import kulikova.weather.utils.MyPagerAdapter;
+import kulikova.weather.adapters.MyPagerAdapter;
+import kulikova.weather.enums.EnumCoefficient;
+import kulikova.weather.enums.EnumFragmentImage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,17 +32,13 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.diagram)
     Button diagram;
 
-    String[] images = new String[]{
-            "1.jpg", "2.jpg", "3.jpg", "4.jpg", "3_days_2.jpg"
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         InitViews();
-        }
+    }
 
     private void InitViews() {
 
@@ -53,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                setBackground(images[position]);
+                setBackground(EnumFragmentImage.getByPosition(position));
             }
 
             @Override
@@ -64,8 +60,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
-        setBackground(images[0]);
+        setBackground(EnumFragmentImage.getByPosition(0));
     }
 
     private void setBackground(String image) {
@@ -80,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.diagram)
-    public void showDiagram(){
-        Intent intent=new Intent(this, DiagramActivity.class);
+    public void showDiagram() {
+        Intent intent = new Intent(this, DiagramActivity.class);
         startActivity(intent);
     }
 }

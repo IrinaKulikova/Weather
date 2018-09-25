@@ -14,6 +14,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import kulikova.weather.enums.EnumCoefficient;
+
 public class LineView extends View {
 
 
@@ -80,8 +82,7 @@ public class LineView extends View {
         mPaint.setARGB(255, 255, 255, 0);
         mPaint.setTextSize(60);
         mPaint.setStrokeWidth(10);
-        double k = 273.15;
-        canvas.drawText("max: " + String.valueOf((int)(maxY-k)), (3 * wDevice) / 5, heigthView / 8, mPaint);
-        canvas.drawText("min: " + String.valueOf((int)(minY-k)), (3 * wDevice) / 5, (7 * heigthView) / 8, mPaint);
+        canvas.drawText("max: " + String.valueOf((int) (maxY - EnumCoefficient.TEMPERATURE.getValue())), (3 * wDevice) / 5, heigthView / 8, mPaint);
+        canvas.drawText("min: " + String.valueOf((int) (minY - EnumCoefficient.TEMPERATURE.getValue())), (3 * wDevice) / 5, (7 * heigthView) / 8, mPaint);
     }
 }

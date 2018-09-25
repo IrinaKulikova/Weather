@@ -4,10 +4,10 @@ package kulikova.weather.services;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import kulikova.weather.api.WeatherAPI;
-import kulikova.weather.utils.EnumTime;
-import kulikova.weather.utils.PointsAdapter;
-import kulikova.weather.utils.WeatherAdapter;
-import kulikova.weather.utils.WeatherAdapterList;
+import kulikova.weather.enums.EnumTime;
+import kulikova.weather.adapters.PointsAdapter;
+import kulikova.weather.adapters.WeatherAdapter;
+import kulikova.weather.adapters.WeatherAdapterList;
 
 public class ServiceLoader {
     public static void load(String id, WeatherAPI weatherAPI, WeatherAdapterList adapter) {

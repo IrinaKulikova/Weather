@@ -1,4 +1,4 @@
-package kulikova.weather.utils;
+package kulikova.weather.enums;
 
 public enum EnumTime {
     MORNING("06:00:00", 0),

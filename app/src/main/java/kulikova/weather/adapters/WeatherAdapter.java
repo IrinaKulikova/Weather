@@ -1,9 +1,10 @@
-package kulikova.weather.utils;
+package kulikova.weather.adapters;
 
 import android.support.annotation.Nullable;
 
 import kulikova.weather.entities.List;
 import kulikova.weather.entities.WeatherJSON;
+import kulikova.weather.enums.EnumTime;
 import kulikova.weather.interfaces.ListLoad;
 
 public class WeatherAdapter {

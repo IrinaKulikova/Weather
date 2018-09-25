@@ -1,11 +1,8 @@
 package kulikova.weather.views;
 
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +10,7 @@ import kulikova.weather.R;
 import kulikova.weather.api.App;
 import kulikova.weather.api.WeatherAPI;
 import kulikova.weather.services.ServiceLoader;
-import kulikova.weather.utils.PointsAdapter;
+import kulikova.weather.adapters.PointsAdapter;
 import retrofit2.Retrofit;
 
 public class DiagramActivity extends AppCompatActivity {
